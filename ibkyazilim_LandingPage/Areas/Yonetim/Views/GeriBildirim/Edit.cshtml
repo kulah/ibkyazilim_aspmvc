@@ -1,0 +1,83 @@
+﻿@model ibkyazilim_LandingPage.Areas.Yonetim.Models.GeriBildirim
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">Geri Bildirim Düzenle</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.adisoyadi, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.adisoyadi, new { @class = "form-control required" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.adisoyadi)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => Model.email, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control required" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.email)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.konu, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.konu, new { @class = "form-control required" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.konu)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.iletilenmesaj, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextAreaFor(m => m.iletilenmesaj, new { @class = "form-control required" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.iletilenmesaj)
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <span id="progress" class="text-center" style="display: none;">
+            <img src="~/images/wait.gif" alt="wait" />
+            Kaydediliyor..
+        </span>
+        <input class="btn btn-primary" type="submit" value="Kaydet" />
+        <button class="btn btn-warning" data-dismiss="modal">Kapat</button>
+    </div>
+
+}
+
+
+@*<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+</script>*@
+
+  
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

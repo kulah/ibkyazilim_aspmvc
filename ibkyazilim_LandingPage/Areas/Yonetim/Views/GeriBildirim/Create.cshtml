@@ -1,0 +1,143 @@
+﻿@model ibkyazilim_LandingPage.Areas.Yonetim.Models.GeriBildirim
+
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">Yeni Bildirim Ekle</h3>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(m => Model.adisoyadi, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.adisoyadi, new { @class = "form-control required" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.adisoyadi)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.email, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control required" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.email)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.konu, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(model => model.konu, new SelectList(
+                  new List<Object>{
+                       new { value = "İş Talep" , text = "İş Talep"  },
+                       new { value = "Özgeçmiş (Başvuru)" , text = "Özgeçmiş (Başvuru)" },
+                       new { value = "Şikayet" , text = "Şikayet"},
+                       new { value = "Değerlendirme" , text = "Değerlendirme"},
+                       new { value = "Diğer" , text = "Diğer"},
+                                     
+                    },
+             "value", "text", 4), new { @class = "form-control m-b" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.konu)
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.iletilenmesaj, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextAreaFor(m => m.iletilenmesaj, new { @class = "form-control required" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.iletilenmesaj)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <span id="progress" class="text-center" style="display: none;">
+            <img src="~/images/wait.gif" alt="wiat" />
+            Kaydediliyor..
+        </span>
+
+        <input class="btn btn-primary" type="submit" value="Kaydet" />
+        <button class="btn btn-warning" data-dismiss="modal">Geri</button>
+    </div>
+}
+
+
+@*<script>
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
+</script>*@
+
+
+
+
+
+@*@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.adisoyadi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.adisoyadi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.adisoyadi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.konu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.konu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.konu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.iletilenmesaj, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.iletilenmesaj, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.iletilenmesaj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+                @Html.ActionLink("Geri", "Index", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+    </div>
+}*@
+
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

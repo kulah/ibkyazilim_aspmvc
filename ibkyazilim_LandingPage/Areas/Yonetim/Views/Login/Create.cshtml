@@ -1,0 +1,127 @@
+﻿@model ibkyazilim_LandingPage.Areas.Yonetim.Models.AccountControl
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">Kullanıcı Ekle</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.DURUM, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DURUM, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.DURUM, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AD, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AD, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.AD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SOYAD, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SOYAD, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.SOYAD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.KULLANICIADI, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.KULLANICIADI, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.KULLANICIADI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PAROLA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PAROLA, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.PAROLA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ADMIN, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ADMIN, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.ADMIN, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ETAR, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ETAR, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.ETAR, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DTAR, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DTAR, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.DTAR, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CEVRIMICIMI, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CEVRIMICIMI, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>
+                        @Html.ValidationMessageFor(model => model.CEVRIMICIMI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span id="progress" class="text-center" style="display: none;">
+            <img src="~/images/wait.gif" alt="wiat" />
+            Kaydediliyor..
+        </span>
+
+        <input class="btn btn-primary" type="submit" value="Kaydet" />
+        <button class="btn btn-warning" data-dismiss="modal">Geri</button>
+    </div>
+}

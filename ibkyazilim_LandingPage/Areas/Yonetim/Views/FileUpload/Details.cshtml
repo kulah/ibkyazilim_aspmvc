@@ -1,0 +1,59 @@
+﻿@model ibkyazilim_LandingPage.Areas.Yonetim.Models.FileUpload
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FileUpload</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DURUM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DURUM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FILETYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FILETYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FILEFORMAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FILEFORMAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FILENAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FILENAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FILE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FILE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
